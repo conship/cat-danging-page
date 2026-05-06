@@ -7,7 +7,7 @@ const DANCE_STYLES = {
   'spin-dance': { animation: 'spin-dance', duration: '1.2s' },
 };
 
-const NOTES = ['♪', '♫', '♬', '🎵', '🎶'];
+const NOTES = ['⭐', '✨', '💫', '🌟', '🪐'];
 
 export default function DancingCat({ isPlaying, danceStyle, speed }) {
   const style = DANCE_STYLES[danceStyle] || DANCE_STYLES.dance;
@@ -20,8 +20,8 @@ export default function DancingCat({ isPlaying, danceStyle, speed }) {
     willChange: 'transform',
     display: 'block',
     filter: isPlaying
-      ? 'drop-shadow(0 0 20px rgba(255, 200, 50, 0.6))'
-      : 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
+      ? 'drop-shadow(0 0 24px rgba(123, 47, 255, 0.7)) drop-shadow(0 0 8px rgba(126, 184, 247, 0.5))'
+      : 'drop-shadow(0 4px 8px rgba(0,0,0,0.4))',
     transition: 'filter 0.3s ease',
   };
 
