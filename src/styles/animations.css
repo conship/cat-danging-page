@@ -1,0 +1,82 @@
+/* Dance animation - combines bounce, sway, and spin */
+@keyframes dance {
+  0%   { transform: translateY(0)   rotate(0deg)   scale(1); }
+  10%  { transform: translateY(-20px) rotate(-8deg)  scale(1.05); }
+  20%  { transform: translateY(-5px)  rotate(5deg)   scale(1); }
+  30%  { transform: translateY(-25px) rotate(-5deg)  scale(1.08); }
+  40%  { transform: translateY(-8px)  rotate(8deg)   scale(1); }
+  50%  { transform: translateY(-30px) rotate(0deg)   scale(1.1); }
+  60%  { transform: translateY(-8px)  rotate(-8deg)  scale(1); }
+  70%  { transform: translateY(-25px) rotate(5deg)   scale(1.08); }
+  80%  { transform: translateY(-5px)  rotate(-5deg)  scale(1); }
+  90%  { transform: translateY(-20px) rotate(8deg)   scale(1.05); }
+  100% { transform: translateY(0)   rotate(0deg)   scale(1); }
+}
+
+/* Side sway only */
+@keyframes sway {
+  0%   { transform: rotate(0deg) scale(1); }
+  25%  { transform: rotate(-12deg) scale(1.05); }
+  50%  { transform: rotate(0deg) scale(1); }
+  75%  { transform: rotate(12deg) scale(1.05); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+/* Jump animation */
+@keyframes jump {
+  0%   { transform: translateY(0) scaleX(1) scaleY(1); }
+  20%  { transform: translateY(0) scaleX(1.1) scaleY(0.9); }
+  50%  { transform: translateY(-60px) scaleX(0.95) scaleY(1.1); }
+  80%  { transform: translateY(0) scaleX(1.1) scaleY(0.9); }
+  100% { transform: translateY(0) scaleX(1) scaleY(1); }
+}
+
+/* Spin dance */
+@keyframes spin-dance {
+  0%   { transform: rotate(0deg) translateY(0); }
+  25%  { transform: rotate(90deg) translateY(-15px); }
+  50%  { transform: rotate(180deg) translateY(0); }
+  75%  { transform: rotate(270deg) translateY(-15px); }
+  100% { transform: rotate(360deg) translateY(0); }
+}
+
+/* Tail wag */
+@keyframes tailWag {
+  0%   { transform: rotate(0deg); transform-origin: top left; }
+  25%  { transform: rotate(20deg); transform-origin: top left; }
+  75%  { transform: rotate(-20deg); transform-origin: top left; }
+  100% { transform: rotate(0deg); transform-origin: top left; }
+}
+
+/* Stars floating background */
+@keyframes floatStar {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+  50%  { transform: translateY(-30px) rotate(180deg); opacity: 0.4; }
+  100% { transform: translateY(0) rotate(360deg); opacity: 0.8; }
+}
+
+/* Disco ball spin */
+@keyframes disco {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Note bounce */
+@keyframes noteBounce {
+  0%   { transform: translateY(0) rotate(-10deg); opacity: 1; }
+  100% { transform: translateY(-80px) rotate(10deg); opacity: 0; }
+}
+
+/* Glow pulse */
+@keyframes glowPulse {
+  0%   { box-shadow: 0 0 20px rgba(255, 200, 50, 0.3); }
+  50%  { box-shadow: 0 0 60px rgba(255, 200, 50, 0.8), 0 0 100px rgba(255, 100, 150, 0.4); }
+  100% { box-shadow: 0 0 20px rgba(255, 200, 50, 0.3); }
+}
+
+/* Stage spotlight */
+@keyframes spotlight {
+  0%   { opacity: 0.3; transform: scale(1); }
+  50%  { opacity: 0.6; transform: scale(1.05); }
+  100% { opacity: 0.3; transform: scale(1); }
+}

@@ -1,0 +1,256 @@
+/* ─── Layout ─── */
+.app {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  overflow: hidden;
+}
+
+/* ─── Background stars ─── */
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.6);
+  animation: floatStar ease-in-out infinite;
+}
+
+/* ─── Title ─── */
+.title {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 800;
+  text-align: center;
+  background: linear-gradient(135deg, #FFD700, #FF6B9D, #C084FC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.05em;
+  z-index: 1;
+  text-shadow: none;
+}
+
+.title-emoji {
+  -webkit-text-fill-color: initial;
+  font-size: 0.9em;
+}
+
+/* ─── Stage ─── */
+.cat-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  padding: 2rem 3rem 0;
+}
+
+.spotlight {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 280px;
+  background: radial-gradient(ellipse at top, rgba(255, 220, 100, 0.25) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cat-image {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.stage-floor {
+  width: 240px;
+  height: 18px;
+  background: linear-gradient(90deg, transparent, rgba(255, 200, 80, 0.4), transparent);
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  filter: blur(4px);
+}
+
+/* ─── Music notes ─── */
+.music-note {
+  position: absolute;
+  top: 0;
+  font-size: 1.6rem;
+  animation: noteBounce ease-out infinite;
+  pointer-events: none;
+  z-index: 3;
+  user-select: none;
+}
+
+/* ─── Controls ─── */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  z-index: 1;
+  width: 100%;
+  max-width: 560px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.control-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+/* ─── Buttons ─── */
+.btn {
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  outline: none;
+  user-select: none;
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(255, 200, 80, 0.8);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  padding: 0.75rem 2.5rem;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #FFD700, #FF6B9D);
+  color: #1a1a2e;
+  box-shadow: 0 4px 20px rgba(255, 107, 157, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 107, 157, 0.6);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary.paused {
+  background: linear-gradient(135deg, #a0f0a0, #50c878);
+  box-shadow: 0 4px 20px rgba(80, 200, 120, 0.4);
+}
+
+.btn-style,
+.btn-speed {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.btn-style:hover,
+.btn-speed:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.btn-style.active,
+.btn-speed.active {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.4), rgba(192, 132, 252, 0.4));
+  border-color: rgba(255, 215, 0, 0.6);
+  color: #FFD700;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+}
+
+/* ─── Hint text ─── */
+.hint {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+  z-index: 1;
+  min-height: 1.5em;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 480px) {
+  .app {
+    gap: 1.5rem;
+    padding: 1.5rem 0.75rem;
+  }
+
+  .cat-image {
+    width: 150px;
+    height: 165px;
+  }
+
+  .cat-stage {
+    padding: 1.5rem 2rem 0;
+  }
+
+  .stage-floor {
+    width: 180px;
+  }
+
+  .btn-primary {
+    padding: 0.65rem 2rem;
+    font-size: 1rem;
+  }
+
+  .btn-style,
+  .btn-speed {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .controls {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .control-group {
+    width: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cat-image {
+    width: 240px;
+    height: 264px;
+  }
+
+  .stage-floor {
+    width: 280px;
+  }
+}
